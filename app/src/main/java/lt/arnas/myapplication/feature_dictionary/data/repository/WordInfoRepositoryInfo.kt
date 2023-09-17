@@ -10,7 +10,7 @@ import lt.arnas.myapplication.feature_dictionary.domain.repository.WordInfoRepos
 import retrofit2.HttpException
 import java.io.IOException
 
-class WordInfoRepositoryInfo(
+class WordInfoRepositoryImpl(
     private val api: DictionaryApi,
     private val dao: WordInfoDao
 ): WordInfoRepository {
