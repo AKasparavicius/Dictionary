@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import lt.arnas.myapplication.feature_dictionary.data.local.Converters
 import lt.arnas.myapplication.feature_dictionary.data.local.WordInfoDao
 import lt.arnas.myapplication.feature_dictionary.data.local.WordInfoDatabase
 import lt.arnas.myapplication.feature_dictionary.data.remote.DictionaryApi
@@ -42,7 +43,7 @@ object WordInfoModule {
     fun provideWordInfoDatabase(app: Application): WordInfoDatabase {
         return Room.databaseBuilder(
             app, WordInfoDatabase::class.java, "word_db"
-        ).addTypeConverter(GsonParser(Gson()))
+        ).addTypeConverter(Converters(GsonParser(Gson())))
             .build()
     }
 
